@@ -2,7 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Camera, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
+import {
+  ArrowLeft,
+  Camera,
+  Sparkles,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 import { Button } from "@/components/Button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/Card";
 import { getMockFoodResult } from "@/lib/mock-data";
@@ -21,7 +27,10 @@ export default function ResultsPage() {
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
-          <Link href="/scan" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <Link
+            href="/scan"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
             <ArrowLeft size={24} />
             <span className="font-semibold">Back</span>
           </Link>
@@ -57,7 +66,9 @@ export default function ResultsPage() {
         <Card className="mb-6">
           <CardHeader>
             <CardTitle className="text-2xl">Nutritional Information</CardTitle>
-            <p className="text-sm text-foreground/60 mt-1">Per serving (approx.)</p>
+            <p className="text-sm text-foreground/60 mt-1">
+              Per serving (approx.)
+            </p>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

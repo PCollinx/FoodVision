@@ -3,14 +3,17 @@
 import React, { useRef, useState } from "react";
 import { Camera as CameraIcon, X } from "lucide-react";
 import { Button } from "./Button";
-
 interface ImageUploadProps {
   onImageSelect: (file: File, preview: string) => void;
   preview?: string;
   onClear?: () => void;
 }
 
-export function ImageUpload({ onImageSelect, preview, onClear }: ImageUploadProps) {
+export function ImageUpload({
+  onImageSelect,
+  preview,
+  onClear,
+}: ImageUploadProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [dragActive, setDragActive] = useState(false);
 
@@ -62,6 +65,7 @@ export function ImageUpload({ onImageSelect, preview, onClear }: ImageUploadProp
 
       {preview ? (
         <div className="relative w-full max-w-md mx-auto">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={preview}
             alt="Preview"
@@ -86,7 +90,11 @@ export function ImageUpload({ onImageSelect, preview, onClear }: ImageUploadProp
           className={`
             border-3 border-dashed rounded-xl p-8 text-center cursor-pointer
             transition-all duration-200
-            ${dragActive ? "border-secondary bg-secondary/10" : "border-border hover:border-secondary"}
+            ${
+              dragActive
+                ? "border-secondary bg-secondary/10"
+                : "border-border hover:border-secondary"
+            }
           `}
           onClick={() => fileInputRef.current?.click()}
         >
@@ -100,7 +108,11 @@ export function ImageUpload({ onImageSelect, preview, onClear }: ImageUploadProp
                 Click to browse or drag and drop
               </p>
             </div>
-            <Button variant="secondary" size="sm" onClick={(e) => e.stopPropagation()}>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={(e) => e.stopPropagation()}
+            >
               Choose File
             </Button>
           </div>

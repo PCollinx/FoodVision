@@ -56,7 +56,8 @@ function transformApiResponse(apiData: any): FoodResult {
     nutritionalInfo: {
       calories: apiData.nutrition?.calories || 0,
       protein: apiData.nutrition?.protein || "0g",
-      carbs: apiData.nutrition?.carbs || apiData.nutrition?.carbohydrates || "0g",
+      carbs:
+        apiData.nutrition?.carbs || apiData.nutrition?.carbohydrates || "0g",
       fat: apiData.nutrition?.fat || "0g",
       fiber: apiData.nutrition?.fiber || "0g",
     },
@@ -69,6 +70,8 @@ function transformApiResponse(apiData: any): FoodResult {
  * Validates if the API endpoint is configured
  */
 export function isApiConfigured(): boolean {
-  return API_CONFIG.endpoint !== "YOUR_API_ENDPOINT_HERE" && 
-         API_CONFIG.endpoint !== "";
+  return (
+    API_CONFIG.endpoint !== "YOUR_API_ENDPOINT_HERE" &&
+    API_CONFIG.endpoint !== ""
+  );
 }

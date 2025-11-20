@@ -11,7 +11,11 @@ export function LoadingSpinner({ size = 24 }: { size?: number }) {
   );
 }
 
-export function LoadingOverlay({ message = "Processing..." }: { message?: string }) {
+export function LoadingOverlay({
+  message = "Processing...",
+}: {
+  message?: string;
+}) {
   return (
     <div className="fixed inset-0 bg-foreground/20 backdrop-blur-sm flex items-center justify-center z-50">
       <div className="bg-white rounded-xl p-8 shadow-xl flex flex-col items-center gap-4">

@@ -34,6 +34,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 The app is currently running with **mock data**. To integrate with your actual API:
 
 1. Create a `.env.local` file in the root directory:
+
 ```env
 NEXT_PUBLIC_API_ENDPOINT=your_api_endpoint_here
 ```
@@ -90,16 +91,17 @@ Edit `app/globals.css` to customize the color scheme:
 
 ```css
 :root {
-  --primary: #ffffff;       /* White */
-  --secondary: #fbbf24;     /* Yellow */
+  --primary: #ffffff; /* White */
+  --secondary: #fbbf24; /* Yellow */
   --secondary-dark: #f59e0b; /* Darker yellow */
-  --accent: #10b981;        /* Green for success states */
+  --accent: #10b981; /* Green for success states */
 }
 ```
 
 ### Mock Food Data
 
 Currently includes mock data for:
+
 - Jollof Rice
 - Egusi Soup
 - Suya

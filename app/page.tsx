@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/Card";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-muted">
+    <div className="min-h-screen bg-linear-to-b from-white to-muted">
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
@@ -26,16 +26,20 @@ export default function Home() {
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Discover Nigerian Cuisine with{" "}
-            <span className="text-secondary-dark">AI</span>
+            <span className="text-secondary-dark">Artificial Intelligence</span>
           </h2>
           <p className="text-lg md:text-xl text-foreground/70 mb-8 max-w-2xl mx-auto">
-            Snap a photo of any Nigerian dish and instantly get detailed information 
-            about its name, nutritional value, and rich cultural history.
+            Snap a photo of any Nigerian dish and instantly get detailed
+            information about its name, nutritional value, and rich cultural
+            history.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/scan">
-              <Button size="lg" className="w-full sm:w-auto flex items-center gap-2">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto flex items-center gap-2"
+              >
                 <Camera size={20} />
                 Start Scanning
               </Button>
@@ -57,7 +61,8 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <p className="text-foreground/70">
-                Upload or capture an image and our AI will identify the Nigerian dish in seconds
+                Upload or capture an image and our AI will identify the Nigerian
+                dish in seconds
               </p>
             </CardContent>
           </Card>
@@ -71,7 +76,8 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <p className="text-foreground/70">
-                Get detailed nutritional breakdown including calories, protein, carbs, and more
+                Get detailed nutritional breakdown including calories, protein,
+                carbs, and more
               </p>
             </CardContent>
           </Card>
@@ -85,22 +91,28 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <p className="text-foreground/70">
-                Learn about the origins, traditions, and stories behind each dish
+                Learn about the origins, traditions, and stories behind each
+                dish
               </p>
             </CardContent>
           </Card>
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-r from-secondary to-secondary-dark rounded-2xl p-8 md:p-12 text-center max-w-3xl mx-auto">
+        <div className="bg-linear-to-r from-secondary to-secondary-dark rounded-2xl p-8 md:p-12 text-center max-w-3xl mx-auto">
           <h3 className="text-3xl font-bold mb-4 text-foreground">
             Ready to explore Nigerian cuisine?
           </h3>
           <p className="text-foreground/80 mb-6 text-lg">
-            Join thousands discovering the rich flavors and history of Nigerian food
+            Join thousands discovering the rich flavors and history of Nigerian
+            food
           </p>
           <Link href="/scan">
-            <Button variant="secondary" size="lg" className="bg-white hover:bg-white/90">
+            <Button
+              variant="primary"
+              size="lg"
+              className="bg-white hover:bg-white/90"
+            >
               Get Started Now
             </Button>
           </Link>
@@ -110,7 +122,10 @@ export default function Home() {
       {/* Footer */}
       <footer className="container mx-auto px-4 py-8 mt-20 border-t border-border">
         <div className="text-center text-foreground/60 text-sm">
-          <p>© 2025 FoodVision. Powered by AI to celebrate Nigerian cuisine.</p>
+          <p>
+            © 2025 FoodVision. Designed and Powered by Collins to celebrate
+            Nigerian cuisine.
+          </p>
         </div>
       </footer>
     </div>

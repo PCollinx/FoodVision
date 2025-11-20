@@ -43,7 +43,10 @@ export default function ScanPage() {
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <Link
+            href="/"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
             <ArrowLeft size={24} />
             <span className="font-semibold">Back</span>
           </Link>

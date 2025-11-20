@@ -14,8 +14,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "FoodVision - Nigerian Food Recognition",
-  description: "AI-powered Nigerian food recognition app. Scan and identify Nigerian dishes with detailed nutritional information and history.",
-  keywords: ["Nigerian food", "food recognition", "AI", "machine learning", "nutrition"],
+  description:
+    "AI-powered Nigerian food recognition app. Scan and identify Nigerian dishes with detailed nutritional information and history.",
+  keywords: [
+    "Nigerian food",
+    "food recognition",
+    "AI",
+    "machine learning",
+    "nutrition",
+  ],
   authors: [{ name: "FoodVision Team" }],
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
