@@ -37,7 +37,7 @@ export default function ScanPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-muted">
+    <div className="min-h-screen bg-linear-to-b from-white to-muted">
       {isAnalyzing && <LoadingOverlay message="Analyzing your food..." />}
 
       {/* Header */}

@@ -23,7 +23,7 @@ export default function ResultsPage() {
   const historyPreview = result.history.slice(0, 200) + "...";
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-muted pb-12">
+    <div className="min-h-screen bg-linear-to-b from-white to-muted pb-12">
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
