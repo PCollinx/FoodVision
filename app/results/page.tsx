@@ -60,6 +60,23 @@ export default function ResultsPage() {
               {formatConfidence(result.confidence)}
             </span>
           </div>
+          
+          {/* Show top predictions if available */}
+          {result.allPredictions && result.allPredictions.length > 1 && (
+            <div className="mt-4">
+              <p className="text-sm text-foreground/60 mb-2">Other possibilities:</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {result.allPredictions.slice(1, 3).map((pred, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 bg-muted rounded-full text-xs"
+                  >
+                    {pred.class} ({pred.percentage})
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Nutritional Information */}

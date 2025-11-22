@@ -1,9 +1,8 @@
-import { FoodResult } from "./mock-data";
+import { FoodResult, getFoodDataByName } from "./mock-data";
 
 // Configuration
 const API_CONFIG = {
-  // Replace this with your actual API endpoint when ready
-  endpoint: process.env.NEXT_PUBLIC_API_ENDPOINT || "YOUR_API_ENDPOINT_HERE",
+  endpoint: process.env.NEXT_PUBLIC_API_ENDPOINT || "https://naija-food-classifier-server.onrender.com/predict",
   timeout: 30000, // 30 seconds
 };
 
@@ -16,16 +15,12 @@ export async function analyzeFoodImage(imageFile: File): Promise<FoodResult> {
   try {
     // Create FormData to send the image
     const formData = new FormData();
-    formData.append("file", imageFile);
+    formData.append("image", imageFile); // Server expects 'image' field
 
     // Make API request
     const response = await fetch(API_CONFIG.endpoint, {
       method: "POST",
       body: formData,
-      headers: {
-        // Add any required headers here
-        // 'Authorization': `Bearer ${API_KEY}`,
-      },
       signal: AbortSignal.timeout(API_CONFIG.timeout),
     });
 
@@ -46,23 +41,26 @@ export async function analyzeFoodImage(imageFile: File): Promise<FoodResult> {
 
 /**
  * Transforms the API response to match our FoodResult interface
- * Adjust this function based on your actual API response structure
+ * Server returns: { success: true, predictions: [...], top_prediction: {...} }
  */
-function transformApiResponse(apiData: any): FoodResult {
-  // Example transformation - modify based on your API's actual response format
+function transformApiResponse(apiData: {
+  success: boolean;
+  predictions: Array<{ class: string; confidence: number; percentage: string }>;
+  top_prediction: { class: string; confidence: number; percentage: string };
+}): FoodResult {
+  const topPrediction = apiData.top_prediction;
+  const foodName = topPrediction.class;
+  
+  // Get additional data from our database
+  const foodData = getFoodDataByName(foodName);
+  
   return {
-    name: apiData.food_name || apiData.name || "Unknown Food",
-    confidence: apiData.confidence || 0,
-    nutritionalInfo: {
-      calories: apiData.nutrition?.calories || 0,
-      protein: apiData.nutrition?.protein || "0g",
-      carbs:
-        apiData.nutrition?.carbs || apiData.nutrition?.carbohydrates || "0g",
-      fat: apiData.nutrition?.fat || "0g",
-      fiber: apiData.nutrition?.fiber || "0g",
-    },
-    history: apiData.history || apiData.description || "No history available.",
-    ingredients: apiData.ingredients || [],
+    name: foodName,
+    confidence: topPrediction.confidence,
+    nutritionalInfo: foodData.nutritionalInfo,
+    history: foodData.history,
+    ingredients: foodData.ingredients,
+    allPredictions: apiData.predictions.slice(0, 3), // Include top 3 predictions
   };
 }
 

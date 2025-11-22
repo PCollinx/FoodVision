@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="192" height="192" fill="#fbbf24" rx="28.799999999999997"/>
+  
+  <!-- Icon design - Bowl/Food symbol -->
+  <g transform="translate(38.400000000000006, 48)">
+    <!-- Bowl -->
+    <path d="M 19.200000000000003 57.599999999999994 Q 19.200000000000003 86.4 57.599999999999994 92.16 L 57.599999999999994 92.16 Q 96 96 57.599999999999994 92.16 Q 96 86.4 96 57.599999999999994" 
+          fill="white" 
+          stroke="white" 
+          stroke-width="3.84"/>
+    
+    <!-- Food particles -->
+    <circle cx="38.400000000000006" cy="28.799999999999997" r="5.76" fill="white"/>
+    <circle cx="57.599999999999994" cy="23.04" r="4.800000000000001" fill="white"/>
+    <circle cx="76.80000000000001" cy="30.72" r="5.376" fill="white"/>
+    
+    <!-- Sparkle effect -->
+    <text x="80.64" y="48" font-size="23.04" fill="white">✨</text>
+  </g>
+</svg>

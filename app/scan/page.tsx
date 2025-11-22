@@ -3,37 +3,57 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Sparkles } from "lucide-react";
+import { ArrowLeft, Sparkles, AlertCircle } from "lucide-react";
 import { ImageUpload } from "@/components/ImageUpload";
 import { Button } from "@/components/Button";
 import { LoadingOverlay } from "@/components/Loading";
+import { analyzeFoodImage } from "@/lib/api";
+import { FoodResult } from "@/lib/mock-data";
 
 export default function ScanPage() {
   const router = useRouter();
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string>("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [error, setError] = useState<string>("");
 
   const handleImageSelect = (file: File, previewUrl: string) => {
     setSelectedImage(file);
     setPreview(previewUrl);
+    setError(""); // Clear any previous errors
   };
 
   const handleClear = () => {
     setSelectedImage(null);
     setPreview("");
+    setError("");
   };
 
   const handleAnalyze = async () => {
     if (!selectedImage) return;
 
     setIsAnalyzing(true);
+    setError("");
 
-    // Simulate API call with mock data
-    setTimeout(() => {
+    try {
+      // Call the real API
+      const result: FoodResult = await analyzeFoodImage(selectedImage);
+      
+      // Store result in sessionStorage to pass to results page
+      sessionStorage.setItem("foodResult", JSON.stringify(result));
+      
       // Navigate to results page
       router.push("/results");
-    }, 2000);
+    } catch (err) {
+      console.error("Error analyzing image:", err);
+      setError(
+        err instanceof Error 
+          ? err.message 
+          : "Failed to analyze the image. Please try again."
+      );
+    } finally {
+      setIsAnalyzing(false);
+    }
   };
 
   return (
@@ -78,6 +98,16 @@ export default function ScanPage() {
             onClear={handleClear}
           />
         </div>
+
+        {error && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
+            <AlertCircle className="text-red-500 flex-shrink-0 mt-0.5" size={20} />
+            <div>
+              <p className="font-semibold text-red-800 mb-1">Error</p>
+              <p className="text-sm text-red-700">{error}</p>
+            </div>
+          </div>
+        )}
 
         {selectedImage && (
           <div className="flex flex-col gap-4">

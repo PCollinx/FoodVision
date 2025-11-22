@@ -8,8 +8,10 @@ An AI-powered web application that identifies Nigerian dishes from images and pr
 - 🤖 **AI Recognition**: Identify Nigerian foods with high accuracy
 - 📊 **Nutritional Info**: Get detailed nutritional breakdown (calories, protein, carbs, fat, fiber)
 - 📚 **Cultural History**: Learn about the origins and traditions behind each dish
-- 📱 **Mobile-First Design**: Optimized for mobile devices with responsive layouts
+- 📱 **Progressive Web App**: Install on Android & iOS - works like a native app!
+- 🔄 **Offline Support**: Access cached content without internet
 - 🎨 **Modern UI**: Clean white and yellow color scheme
+- ⚡ **Fast Loading**: Optimized with service worker caching
 
 ## 🚀 Tech Stack
 
@@ -17,7 +19,8 @@ An AI-powered web application that identifies Nigerian dishes from images and pr
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4
 - **Icons**: Lucide React
-- **Deployment**: Ready for Vercel/Netlify
+- **PWA**: next-pwa with service workers
+- **Deployment**: Ready for Vercel/Netlify (HTTPS required for PWA)
 
 ## 📦 Getting Started
 
@@ -29,37 +32,42 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### Generate PWA Icons
+
+Visit `http://localhost:3000/generate-icons.html` to generate all required app icons, then download and save them to the `/public/` directory.
+
 ## 🔧 API Integration
 
-The app is currently running with **mock data**. To integrate with your actual API:
+✅ **LIVE AND INTEGRATED!** The app is connected to the Nigerian Food Classification API.
 
-1. Create a `.env.local` file in the root directory:
+- **API Endpoint**: `https://naija-food-classifier-server.onrender.com/predict`
+- **Model**: EfficientNetB4 (~72.2% validation accuracy)
+- **Classes**: 18 Nigerian food dishes
+- **Server**: Flask + PyTorch on Render
 
-```env
-NEXT_PUBLIC_API_ENDPOINT=your_api_endpoint_here
-```
+### How It Works
 
-2. Update the `transformApiResponse` function in `lib/api.ts` to match your API's response format
+1. Upload image → Sent to API via FormData
+2. Server processes with EfficientNetB4 model
+3. Returns top predictions with confidence scores
+4. App enriches with nutritional info & cultural history
+5. Display comprehensive results to user
 
-3. The API service in `lib/api.ts` expects a POST request with FormData containing the image file
-
-### Expected API Response Format
+### Actual API Response Format
 
 ```json
 {
-  "food_name": "Jollof Rice",
-  "confidence": 0.95,
-  "nutrition": {
-    "calories": 350,
-    "protein": "8g",
-    "carbs": "65g",
-    "fat": "12g",
-    "fiber": "3g"
-  },
-  "ingredients": ["Rice", "Tomatoes", "Peppers", "Onions"],
-  "history": "Cultural and historical information about the dish..."
+  "success": true,
+  "predictions": [
+    { "class": "Jollof Rice", "confidence": 0.89, "percentage": "89.00%" },
+    { "class": "Ofada Rice", "confidence": 0.08, "percentage": "8.00%" },
+    { "class": "Yam Porridge", "confidence": 0.03, "percentage": "3.00%" }
+  ],
+  "top_prediction": { "class": "Jollof Rice", "confidence": 0.89, ... }
 }
 ```
+
+See [API_INTEGRATION.md](./API_INTEGRATION.md) for detailed integration documentation.
 
 ## 🗂️ Project Structure
 
@@ -126,14 +134,29 @@ Add more in `lib/mock-data.ts` for testing.
 
 Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## 📱 Progressive Web App
+
+FoodVision is a full-featured PWA! Users can:
+- **Install** the app on Android, iOS, and Desktop
+- **Work offline** with cached content
+- **Get updates** automatically in the background
+- **Enjoy** a native app-like experience
+
+See [PWA_GUIDE.md](./PWA_GUIDE.md) for detailed installation instructions and technical details.
+
 ## 📝 Roadmap
 
-- [ ] Integrate real API endpoint
+- [x] Integrate real API endpoint ✅
+- [x] Offline mode with PWA ✅
+- [x] Install to home screen (Android & iOS) ✅
 - [ ] Add recipe fetching feature
 - [ ] Implement user history/favorites
 - [ ] Add share functionality
+- [ ] Image optimization before upload
+- [ ] Push notifications
+- [ ] Background sync for failed uploads
 - [ ] Multi-language support
-- [ ] Offline mode with PWA
+- [ ] User feedback for predictions
 
 ## 🙏 Acknowledgments
 
