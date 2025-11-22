@@ -38,17 +38,17 @@ export default function ScanPage() {
     try {
       // Call the real API
       const result: FoodResult = await analyzeFoodImage(selectedImage);
-      
+
       // Store result in sessionStorage to pass to results page
       sessionStorage.setItem("foodResult", JSON.stringify(result));
-      
+
       // Navigate to results page
       router.push("/results");
     } catch (err) {
       console.error("Error analyzing image:", err);
       setError(
-        err instanceof Error 
-          ? err.message 
+        err instanceof Error
+          ? err.message
           : "Failed to analyze the image. Please try again."
       );
     } finally {
@@ -101,7 +101,7 @@ export default function ScanPage() {
 
         {error && (
           <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
-            <AlertCircle className="text-red-500 flex-shrink-0 mt-0.5" size={20} />
+            <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={20} />
             <div>
               <p className="font-semibold text-red-800 mb-1">Error</p>
               <p className="text-sm text-red-700">{error}</p>

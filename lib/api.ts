@@ -2,7 +2,9 @@ import { FoodResult, getFoodDataByName } from "./mock-data";
 
 // Configuration
 const API_CONFIG = {
-  endpoint: process.env.NEXT_PUBLIC_API_ENDPOINT || "https://naija-food-classifier-server.onrender.com/predict",
+  endpoint:
+    process.env.NEXT_PUBLIC_API_ENDPOINT ||
+    "https://naija-food-classifier-server.onrender.com/predict",
   timeout: 30000, // 30 seconds
 };
 
@@ -30,8 +32,6 @@ export async function analyzeFoodImage(imageFile: File): Promise<FoodResult> {
 
     const data = await response.json();
 
-    // Transform API response to match our FoodResult interface
-    // Adjust this based on your actual API response format
     return transformApiResponse(data);
   } catch (error) {
     console.error("Error analyzing food image:", error);
@@ -50,10 +50,10 @@ function transformApiResponse(apiData: {
 }): FoodResult {
   const topPrediction = apiData.top_prediction;
   const foodName = topPrediction.class;
-  
+
   // Get additional data from our database
   const foodData = getFoodDataByName(foodName);
-  
+
   return {
     name: foodName,
     confidence: topPrediction.confidence,

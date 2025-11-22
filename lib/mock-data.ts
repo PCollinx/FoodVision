@@ -10,9 +10,9 @@ export interface FoodResult {
   };
   history: string;
   ingredients: string[];
-  allPredictions?: Array<{ 
-    class: string; 
-    confidence: number; 
+  allPredictions?: Array<{
+    class: string;
+    confidence: number;
     percentage: string;
   }>;
 }
@@ -233,7 +233,7 @@ export const mockFoodData: Record<string, FoodResult> = {
   },
   "pepper-soup": {
     name: "Pepper Soup",
-    confidence: 0.90,
+    confidence: 0.9,
     nutritionalInfo: {
       calories: 220,
       protein: "28g",
@@ -380,7 +380,7 @@ export const mockFoodData: Record<string, FoodResult> = {
   },
   "chin-chin": {
     name: "Chin Chin",
-    confidence: 0.90,
+    confidence: 0.9,
     nutritionalInfo: {
       calories: 195,
       protein: "3g",
@@ -413,10 +413,12 @@ export function getMockFoodResult(query?: string): FoodResult {
   return foods[Math.floor(Math.random() * foods.length)];
 }
 
-export function getFoodDataByName(name: string): Omit<FoodResult, "confidence"> {
+export function getFoodDataByName(
+  name: string
+): Omit<FoodResult, "confidence"> {
   const normalized = normalizeName(name);
   const foodData = mockFoodData[normalized];
-  
+
   if (foodData) {
     return {
       name: foodData.name,
@@ -425,7 +427,7 @@ export function getFoodDataByName(name: string): Omit<FoodResult, "confidence"> 
       ingredients: foodData.ingredients,
     };
   }
-  
+
   // Return default data if food not found
   return {
     name: name,

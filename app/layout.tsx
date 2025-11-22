@@ -26,7 +26,8 @@ export const metadata: Metadata = {
     "nutrition",
   ],
   authors: [{ name: "FoodVision Team" }],
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes",
+  viewport:
+    "width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes",
   themeColor: "#fbbf24",
   manifest: "/manifest.json",
   appleWebApp: {
