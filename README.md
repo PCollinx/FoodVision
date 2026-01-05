@@ -137,6 +137,7 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## 📱 Progressive Web App
 
 FoodVision is a full-featured PWA! Users can:
+
 - **Install** the app on Android, iOS, and Desktop
 - **Work offline** with cached content
 - **Get updates** automatically in the background

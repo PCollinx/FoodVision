@@ -10,7 +10,8 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export function InstallPrompt() {
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [deferredPrompt, setDeferredPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null);
   const [showPrompt, setShowPrompt] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
@@ -38,11 +39,11 @@ export function InstallPrompt() {
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       const promptEvent = e as BeforeInstallPromptEvent;
-      
+
       // Use queueMicrotask to defer state updates
       queueMicrotask(() => {
         setDeferredPrompt(promptEvent);
-        
+
         // Only show after user has been on site for a bit
         setTimeout(() => {
           const dismissed = localStorage.getItem("pwa-prompt-dismissed");
@@ -56,7 +57,10 @@ export function InstallPrompt() {
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
     return () => {
-      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
     };
   }, [isIOS]);
 
@@ -99,7 +103,12 @@ export function InstallPrompt() {
             <p className="text-sm text-foreground/70 mb-3">
               Install this app on your iPhone: tap{" "}
               <span className="inline-block">
-                <svg width="16" height="16" viewBox="0 0 16 16" className="inline">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  className="inline"
+                >
                   <path
                     fill="currentColor"
                     d="M8 0a1 1 0 011 1v10.586l2.293-2.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L7 11.586V1a1 1 0 011-1z"

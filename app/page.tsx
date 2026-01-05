@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Camera, Sparkles, BookOpen, TrendingUp, Brain, Zap, Target } from "lucide-react";
+import {
+  Camera,
+  Sparkles,
+  BookOpen,
+  TrendingUp,
+  Brain,
+  Zap,
+  Target,
+} from "lucide-react";
 import { Button } from "@/components/Button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/Card";
 
@@ -50,9 +58,9 @@ export default function Home() {
                 Start Scanning
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="lg"
               className="w-full sm:w-auto"
               onClick={scrollToAbout}
             >
@@ -116,7 +124,8 @@ export default function Home() {
               How It Works
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-              Powered by cutting-edge AI technology to bring you accurate food recognition
+              Powered by cutting-edge AI technology to bring you accurate food
+              recognition
             </p>
           </div>
 
@@ -128,29 +137,45 @@ export default function Home() {
                   <Brain className="text-secondary-dark" size={24} />
                 </div>
                 <div>
-                  <CardTitle className="text-2xl">EfficientNet-B4 Model</CardTitle>
-                  <p className="text-sm text-foreground/60">State-of-the-art image classification</p>
+                  <CardTitle className="text-2xl">
+                    EfficientNet-B4 Model
+                  </CardTitle>
+                  <p className="text-sm text-foreground/60">
+                    State-of-the-art image classification
+                  </p>
                 </div>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-foreground/80 leading-relaxed">
-                Our Nigerian food recognition system uses <strong>EfficientNet-B4</strong>, a powerful 
-                convolutional neural network architecture that achieves excellent accuracy while remaining 
-                computationally efficient. The model has been specifically trained on Nigerian cuisine.
+                Our Nigerian food recognition system uses{" "}
+                <strong>EfficientNet-B4</strong>, a powerful convolutional
+                neural network architecture that achieves excellent accuracy
+                while remaining computationally efficient. The model has been
+                specifically trained on Nigerian cuisine.
               </p>
               <div className="grid md:grid-cols-3 gap-4 mt-6">
                 <div className="bg-muted rounded-lg p-4 text-center">
-                  <p className="text-3xl font-bold text-secondary-dark">72.2%</p>
-                  <p className="text-sm text-foreground/70 mt-1">Validation Accuracy</p>
+                  <p className="text-3xl font-bold text-secondary-dark">
+                    72.2%
+                  </p>
+                  <p className="text-sm text-foreground/70 mt-1">
+                    Validation Accuracy
+                  </p>
                 </div>
                 <div className="bg-muted rounded-lg p-4 text-center">
                   <p className="text-3xl font-bold text-secondary-dark">18</p>
-                  <p className="text-sm text-foreground/70 mt-1">Food Classes</p>
+                  <p className="text-sm text-foreground/70 mt-1">
+                    Food Classes
+                  </p>
                 </div>
                 <div className="bg-muted rounded-lg p-4 text-center">
-                  <p className="text-3xl font-bold text-secondary-dark">Top 6</p>
-                  <p className="text-sm text-foreground/70 mt-1">Predictions Returned</p>
+                  <p className="text-3xl font-bold text-secondary-dark">
+                    Top 6
+                  </p>
+                  <p className="text-sm text-foreground/70 mt-1">
+                    Predictions Returned
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -167,8 +192,9 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-foreground/70">
-                  Take a photo or upload an image of any Nigerian dish. Our system 
-                  accepts various image formats and automatically preprocesses them.
+                  Take a photo or upload an image of any Nigerian dish. Our
+                  system accepts various image formats and automatically
+                  preprocesses them.
                 </p>
               </CardContent>
             </Card>
@@ -182,8 +208,9 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-foreground/70">
-                  The EfficientNet-B4 model processes your image through multiple neural 
-                  network layers to extract features and identify the dish.
+                  The EfficientNet-B4 model processes your image through
+                  multiple neural network layers to extract features and
+                  identify the dish.
                 </p>
               </CardContent>
             </Card>
@@ -197,8 +224,9 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-foreground/70">
-                  Receive detailed information including the dish name, confidence score, 
-                  nutritional facts, ingredients, and cultural history.
+                  Receive detailed information including the dish name,
+                  confidence score, nutritional facts, ingredients, and cultural
+                  history.
                 </p>
               </CardContent>
             </Card>
@@ -207,19 +235,36 @@ export default function Home() {
           {/* Supported Foods */}
           <Card className="mb-8">
             <CardHeader>
-              <CardTitle className="text-2xl">Supported Nigerian Dishes</CardTitle>
-              <p className="text-sm text-foreground/60 mt-1">Our model can identify these 18 popular Nigerian foods</p>
+              <CardTitle className="text-2xl">
+                Supported Nigerian Dishes
+              </CardTitle>
+              <p className="text-sm text-foreground/60 mt-1">
+                Our model can identify these 18 popular Nigerian foods
+              </p>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {[
-                  "Jollof Rice", "Egusi Soup", "Moi Moi", "Akara",
-                  "Suya", "Efo Riro", "Okra Soup", "Ofada Rice",
-                  "Pounded Yam", "Banga Soup", "Pepper Soup", "Nkwobi",
-                  "Amala", "Ewedu Soup", "Ogbono Soup", "Yam Porridge",
-                  "Puff Puff", "Chin Chin"
+                  "Jollof Rice",
+                  "Egusi Soup",
+                  "Moi Moi",
+                  "Akara",
+                  "Suya",
+                  "Efo Riro",
+                  "Okra Soup",
+                  "Ofada Rice",
+                  "Pounded Yam",
+                  "Banga Soup",
+                  "Pepper Soup",
+                  "Nkwobi",
+                  "Amala",
+                  "Ewedu Soup",
+                  "Ogbono Soup",
+                  "Yam Porridge",
+                  "Puff Puff",
+                  "Chin Chin",
                 ].map((food) => (
-                  <div 
+                  <div
                     key={food}
                     className="px-3 py-2 bg-secondary/10 rounded-lg text-sm font-medium text-center"
                   >
@@ -239,26 +284,40 @@ export default function Home() {
               <ul className="space-y-3 text-foreground/80">
                 <li className="flex items-start gap-2">
                   <span className="text-secondary-dark font-bold mt-1">•</span>
-                  <span><strong>Transfer Learning:</strong> Pre-trained on ImageNet, fine-tuned specifically for Nigerian cuisine</span>
+                  <span>
+                    <strong>Transfer Learning:</strong> Pre-trained on ImageNet,
+                    fine-tuned specifically for Nigerian cuisine
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-secondary-dark font-bold mt-1">•</span>
-                  <span><strong>High Performance:</strong> Strong accuracy on dishes like Jollof Rice, Akara, Moi Moi, Puff Puff, and Suya</span>
+                  <span>
+                    <strong>High Performance:</strong> Strong accuracy on dishes
+                    like Jollof Rice, Akara, Moi Moi, Puff Puff, and Suya
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-secondary-dark font-bold mt-1">•</span>
-                  <span><strong>Real-time Processing:</strong> Results returned in seconds with confidence scores</span>
+                  <span>
+                    <strong>Real-time Processing:</strong> Results returned in
+                    seconds with confidence scores
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-secondary-dark font-bold mt-1">•</span>
-                  <span><strong>Continuous Improvement:</strong> Model can be updated with more training data to improve accuracy</span>
+                  <span>
+                    <strong>Continuous Improvement:</strong> Model can be
+                    updated with more training data to improve accuracy
+                  </span>
                 </li>
               </ul>
               <div className="mt-6 p-4 bg-secondary/10 rounded-lg">
                 <p className="text-sm text-foreground/70">
-                  <strong>Note:</strong> While our model performs well, it may face challenges with poor 
-                  lighting, unusual angles, or visually similar dishes (e.g., viscous soups like Okra, 
-                  Ogbono, and Banga). For best results, ensure good lighting and clear shots.
+                  <strong>Note:</strong> While our model performs well, it may
+                  face challenges with poor lighting, unusual angles, or
+                  visually similar dishes (e.g., viscous soups like Okra,
+                  Ogbono, and Banga). For best results, ensure good lighting and
+                  clear shots.
                 </p>
               </div>
             </CardContent>
